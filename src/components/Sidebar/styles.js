@@ -1,5 +1,23 @@
 import styled from 'styled-components'
 
+export const MenuLabel = styled.label`
+  position: absolute;
+  top: 1.5rem;
+  left: 0.75rem;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+
+  &:hover {
+    color: #338fff;
+  }
+
+  @media (max-width: 600px) {
+    display: block;
+  }
+`
+
 export const Wrapper = styled.div`
   width: 15rem;
   height: calc(100vh - 5rem);
@@ -55,6 +73,19 @@ export const Wrapper = styled.div`
       span {
         opacity: 0;
         transition: all 0.5s;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    position: absolute;
+    left: ${props => props.isMenuOpen ? '0px' : '-15rem'};
+    width: 15rem;
+    z-index: 1000;
+
+    a {
+      span {
+        opacity: 1;
       }
     }
   }

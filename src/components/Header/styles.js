@@ -9,6 +9,11 @@ export const Wrapper = styled.header`
   flex-direction: row;
   align-items: center;
   background: #333;
+  z-index: 1000;
+
+  @media (max-width: 600px) {
+    padding-left: 3.5rem;
+  }
 `
 
 export const Logo = styled.div`
