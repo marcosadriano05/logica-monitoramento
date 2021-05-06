@@ -23,8 +23,9 @@ const GlobalStyle = createGlobalStyle`
     font-family: sans-serif;
   }
 
-  a {
+  button, a {
     text-decoration: none;
+    cursor: pointer;
   }
 
   /* Extra large widgets */
