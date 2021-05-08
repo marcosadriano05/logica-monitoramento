@@ -11,10 +11,11 @@ export const Main = styled.main`
 
 export const Dashboard = styled.section`
   width: 100%;
-  min-height: calc(100vh - 5rem);
+  max-height: calc(100vh - 5rem);
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
 
   h1 {
     padding: 1rem 0;
