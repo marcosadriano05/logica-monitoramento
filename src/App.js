@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Chart from "react-google-charts";
 import { FaChartPie, FaChartBar } from 'react-icons/fa';
 
-import data from './data.json';
+import api from './services/api';
+//import data from './data.json';
 
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
@@ -13,10 +14,23 @@ import { Container, Main, Dashboard } from './styles';
 
 function App() {
   const [typeOfChart, setTypeOfChart] = useState('pie');
+  const [pieChartData, setPieChartData] = useState([]);
+  const [barStackedChartData, setBarStackedChartData] = useState([]);
+  const [error, setError] = useState(null);
 
-  const pieChartData = getPieChartData(data);
-
-  const barStackedChartData = getBarStackedChartData(data);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await api.get('/');
+        const dataReceived = await response.data;
+        setPieChartData(getPieChartData(dataReceived));
+        setBarStackedChartData(getBarStackedChartData(dataReceived));
+      } catch (err) {
+        setError(err);
+      }
+    }
+    fetchData();
+  }, []);
   
   return (
     <Container>
@@ -33,6 +47,11 @@ function App() {
               <FaChartBar />
             </button>
           </div>
+          { error && (
+            <div className="error-message">
+              Erro ao tentar se conectar ao servidor, entre em contato com o suporte.
+            </div>
+          )}
           { typeOfChart === 'pie' && (
             <Chart
               className='chart'
@@ -44,6 +63,10 @@ function App() {
               ]}
               options={{
                 title: 'Tráfego de entrada média no equipamento A em Mbps',
+                legend: {
+                  position: 'bottom',
+                  textStyle: { color: 'black', fontSize: '1rem', bold: true },
+                }
               }}
             />
           ) }
@@ -54,10 +77,12 @@ function App() {
               height="1000px"
               chartType="BarChart"
               loader={<div>Loading Chart</div>}
-              data={barStackedChartData}
+              data={
+                barStackedChartData
+              }
               options={{
-                title: 'Média dos serviços no intervalo de 1min durante 1h',
-                chartArea: { width: '50%', height: '80%' },
+                title: 'Média dos tráfegos de entrada por serviços no intervalo de 1min durante 1h em Mbps',
+                chartArea: { left: '25%', top: '15%', width: '50%', height: '75%' },
                 isStacked: true,
                 hAxis: {
                   title: 'Mbps',
@@ -66,6 +91,10 @@ function App() {
                 vAxis: {
                   title: 'Minutos',
                 },
+                legend: {
+                  position: 'top',
+                  textStyle: { color: 'black', fontSize: '1rem', bold: true },
+                }
               }}
             />
           ) }

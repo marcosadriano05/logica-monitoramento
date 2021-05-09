@@ -2,9 +2,14 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
+  width: 100%;
+  height: 100%;
 `
 
 export const Main = styled.main`
+  width: 100%;
+  height: 100%;
+  min-height: calc(100vh - 5rem);
   display: flex;
   flex-direction: row;
 `
@@ -56,7 +61,11 @@ export const Dashboard = styled.section`
 
   .chart {
     width: 30rem;
-    height: 18rem;
+    height: 25rem;
+    margin: 0 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: none;
     border-radius: 10px;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
@@ -65,7 +74,7 @@ export const Dashboard = styled.section`
   @media (max-width: 480px) {
     .chart {
       width: 25rem;
-      height: 15rem;
+      height: 30rem;
     }
   }
 `

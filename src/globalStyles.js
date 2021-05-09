@@ -18,6 +18,18 @@ const GlobalStyle = createGlobalStyle`
     white-space: nowrap;
     border-width: 0;
   }
+  
+  .error-message {
+    font-size: 1.05rem;
+    font-weight: bold;
+    text-align: center;
+    background: #ffe6e6;
+    color: #ff0033;
+    padding: 0.25rem 0.5rem;
+    margin: 0 1rem 1rem;
+    border: 1px solid #ff0033;
+    border-radius: 10px;
+  }
 
   body {
     font-family: sans-serif;
