@@ -47,3 +47,48 @@ export function getPieChartData(data) {
 
   return measurementAverageData;
 }
+
+export function maximumValueInLastHour(data) {
+  const arrayWithMaxValues = data.map(item => {
+    const maxValueOnMeasures = item.value.map(val => Object.values(val).sort((a, b) => b - a)[0]);
+
+    return {
+      time: item.time,
+      content: item.content,
+      value: maxValueOnMeasures
+    }
+  });
+
+  return arrayWithMaxValues.map(item => {
+    return {
+      content: item.content,
+      value: item.value.sort((a, b) => b - a)[0]
+    };
+  });
+}
+
+export function averageValueInLastHour(data) {
+  const arrayWithAverageValues = data.map(item => {
+    const averageValues = item.value.map(val => {
+      return Object.values(val).reduce((acc, cur) => acc + cur, 0) / Object.values(val).length
+    });
+
+    return {
+      content: item.content,
+      value: averageValues.reduce((acc, cur) => acc + cur, 0) / averageValues.length
+    };
+  });
+
+  return arrayWithAverageValues;
+}
+
+export function lastValue(data) {
+  const lastValue = data.map(item => {
+    return {
+      content: item.content,
+      value: item.value[item.value.length - 1]['5']
+    };
+  });
+
+  return lastValue;
+}
