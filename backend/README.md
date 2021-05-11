@@ -69,3 +69,27 @@ Esse objeto contém os campos time, content e value, onde:
 ## Rotas
 
 - "/": método get. Resposta: JSON com as informações presentes no arquivo data.json.
+
+## Iniciar a aplicação
+
+É necessário o NodeJS instalado na máquina.
+
+Após fazer o download dos arquivos, no diretório frontend, execute o comando para instalar as dependências do projeto.
+
+```shell
+npm install
+```
+ou
+```shell
+yarn
+```
+
+Com todas as dependências instaldas, execute o comando para iniciar a aplicação.
+
+```shell
+npm run start
+```
+ou
+```shell
+yarn start
+```

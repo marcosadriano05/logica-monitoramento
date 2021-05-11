@@ -65,7 +65,7 @@ function App() {
             </div>
           )}
           { typeOfChart === 'pie' && (
-            <div>
+            <div className="chart-container">
               <Chart
                 className='chart'
                 chartType='PieChart'
@@ -95,7 +95,7 @@ function App() {
                     return <li key={index}>{item.content}: {item.value.toFixed(2)}Mbps</li>
                   }) }
                 </ul>
-                ùltima medição na última hora:
+                Última medição na última hora:
                 <ul>
                   { chartLegendLastValue.map((item, index) => {
                     return <li key={index}>{item.content}: {item.value}Mbps</li>
@@ -106,7 +106,7 @@ function App() {
           ) }
 
           { typeOfChart === 'bar-stacked' && (
-            <div>
+            <div className="chart-container">
               <Chart
                 className="chart"
                 height="1000px"
@@ -145,7 +145,7 @@ function App() {
                     return <li key={index}>{item.content}: {item.value.toFixed(2)}Mbps</li>
                   }) }
                 </ul>
-                ùltima medição na última hora:
+                Última medição na última hora:
                 <ul>
                   { chartLegendLastValue.map((item, index) => {
                     return <li key={index}>{item.content}: {item.value}Mbps</li>
@@ -154,7 +154,6 @@ function App() {
               </span>
             </div>
           ) }
-          
         </Dashboard>
       </Main>
     </Container>

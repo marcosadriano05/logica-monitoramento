@@ -71,6 +71,24 @@ export const Dashboard = styled.section`
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
   }
 
+  .chart-container {
+    display: flex;
+    flex-direction: column;
+    span {
+      margin-top: 1rem;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+
+      ul {
+        margin-bottom: 1rem;
+        list-style: none;
+        font-size: 1rem;
+        font-weight: normal;
+      }
+    }
+  }
+
   @media (max-width: 480px) {
     .chart {
       width: 25rem;

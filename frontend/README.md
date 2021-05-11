@@ -66,6 +66,8 @@ Neste diretório se encontram arquivos com funções que serão utilizadas pela 
 
 ## Iniciar a aplicação
 
+É necessário o NodeJS instalado na máquina.
+
 Após fazer o download dos arquivos, no diretório frontend, execute o comando para instalar as dependências do projeto.
 
 ```shell
