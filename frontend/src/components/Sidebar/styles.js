@@ -18,7 +18,7 @@ export const MenuLabel = styled.label`
   }
 `
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.aside`
   width: 15rem;
   height: calc(100vh - 5rem);
   background: #091a30;
